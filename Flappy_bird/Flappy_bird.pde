@@ -5,8 +5,8 @@ teleportPipes();
 }
 int x = 100;
 int y= 100;
-int birdYVelocity = 40;
-int gravity = 4;
+int birdYVelocity = 3;
+int gravity = 1;
 int px = 800;
 int ph = 200;
 int py = 0;
@@ -23,7 +23,8 @@ ellipse(x, y, 40, 20);
 rect(0,580,800,20);
 text(score, 500, 20);
 teleportPipes();
-y+=gravity;
+birdYVelocity+=gravity;
+y+=birdYVelocity;
 if(intersectsPipes())
 {
 x = 100;
@@ -40,7 +41,7 @@ if(passed && x>px)
 
 void mousePressed()
 {
- y-= birdYVelocity;
+ birdYVelocity = -10;
 }
 
 void teleportPipes()
