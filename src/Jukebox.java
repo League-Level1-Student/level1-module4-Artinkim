@@ -33,6 +33,11 @@ public class Jukebox implements Runnable, MouseListener {
 	Song s = new Song("allStar.mp3");
 	Song s1 = new Song("Alan Walker - Faded.mp3");
 	Song s2 = new Song("drumSound.mp3");
+	JFrame f = new JFrame("Juke Box");
+	JPanel p = new JPanel();
+	JButton b1 = new JButton("all star");
+	JButton b2 = new JButton("alan walker faded");
+	JButton b3 = new JButton("Drum");
 
 	public void run() {
 
@@ -46,11 +51,7 @@ public class Jukebox implements Runnable, MouseListener {
 		 * a picture of the album cover. When the button or album cover is clicked, stop
 		 * the currently playing song, and play the one that was selected.
 		 */
-		JFrame f = new JFrame("Juke Box");
-		JPanel p = new JPanel();
-		JButton b1 = new JButton();
-		JButton b2 = new JButton();
-		JButton b3 = new JButton();
+		f.setVisible(true);
 		f.add(p);
 		p.add(b1);
 		p.add(b2);
@@ -58,6 +59,7 @@ public class Jukebox implements Runnable, MouseListener {
 		b1.addMouseListener(this);
 		b2.addMouseListener(this);
 		b3.addMouseListener(this);
+		f.pack();
 	}
 
 	/* Use this method to add album covers to your Panel. */
@@ -74,7 +76,15 @@ public class Jukebox implements Runnable, MouseListener {
 		s.stop();
 		s1.stop();
 		s2.stop();
-		if()
+		if (b == b1) {
+			s.play();
+		}
+		if (b == b2) {
+			s1.play();
+		}
+		if (b == b3) {
+			s2.play();
+		}
 	}
 
 	@Override
